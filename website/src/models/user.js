@@ -466,7 +466,14 @@ var UserSchema = new Schema({
   pushDevices: {type: [{
     regId: {type: String},
     type: {type: String}
-  }],'default': []}
+  }],'default': []},
+
+  notifications: {type: [{
+    type: {type: String},
+    message: {type: String},
+  }], 'default': []},
+
+  incentives: {type: Number, 'default': 0},
 
 }, {
   strict: true,

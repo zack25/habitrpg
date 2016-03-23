@@ -990,6 +990,39 @@ describe('Cron', () => {
     expect(beforeTasks).to.eql(afterTasks);
   });
 
+  describe('login incentives', () => {
+    it('increments incentive counter each cron', function () {
+      let ref = beforeAfter({
+        daysAgo: 1,
+      });
+      let before = ref.before;
+      let after = ref.after;
+
+      after.fns.cron();
+
+      expect(after.incentives).to.be.greaterThan(before.incentives);
+    });
+
+    it('pushes a notification of the day\'s incentive each cron', function () {
+      user.fns.cron();
+
+      expect(user.notifications.length).to.be.greaterThan(0);
+      expect(user.notifications[0].type).to.eql('loginIncentive');
+    });
+
+    it('increments incentive even if days are skipped in between', function () {
+      let ref = beforeAfter({
+        daysAgo: 2,
+      });
+      let before = ref.before;
+      let after = ref.after;
+
+      after.fns.cron();
+
+      expect(after.incentives).to.be.greaterThan(before.incentives);
+    });
+  });
+
   describe('preening', () => {
     beforeEach(function () {
       this.clock = sinon.useFakeTimers(Date.parse('2013-11-20'), 'Date');
