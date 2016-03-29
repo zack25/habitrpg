@@ -991,7 +991,7 @@ describe('Cron', () => {
   });
 
   describe('login incentives', () => {
-    it('increments incentive counter each cron', function () {
+    it('increments incentive counter by 1 each cron', function () {
       let ref = beforeAfter({
         daysAgo: 1,
       });
@@ -1000,7 +1000,7 @@ describe('Cron', () => {
 
       after.fns.cron();
 
-      expect(after.incentives).to.be.greaterThan(before.incentives);
+      expect(after.incentives - before.incentives).to.eql(1);
     });
 
     it('pushes a notification of the day\'s incentive each cron', function () {
@@ -1010,7 +1010,7 @@ describe('Cron', () => {
       expect(user.notifications[0].type).to.eql('loginIncentive');
     });
 
-    it('increments incentive even if days are skipped in between', function () {
+    it('increments incentive by 1 even if days are skipped in between', function () {
       let ref = beforeAfter({
         daysAgo: 2,
       });
@@ -1019,7 +1019,7 @@ describe('Cron', () => {
 
       after.fns.cron();
 
-      expect(after.incentives).to.be.greaterThan(before.incentives);
+      expect(after.incentives - before.incentives).to.eql(1);
     });
   });
 

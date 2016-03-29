@@ -469,6 +469,7 @@ var UserSchema = new Schema({
   }],'default': []},
 
   notifications: {type: [{
+    id: {type: String, 'default': shared.uuid},
     type: {type: String},
     message: {type: String},
   }], 'default': []},

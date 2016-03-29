@@ -261,6 +261,11 @@ module.exports = function(user, options) {
     base4.cronCount = 0;
   }
   user.flags.cronCount++;
+  user.incentives++;
+  user.notifications.push({
+    type: 'loginIncentive',
+    message: user.incentives,
+  });
   analyticsData = {
     category: 'behavior',
     gaLabel: 'Cron Count',
