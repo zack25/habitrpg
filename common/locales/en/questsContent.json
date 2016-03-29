@@ -348,8 +348,8 @@
   "questSnailDropSnailEgg": "Snail (Egg)",
   "questSnailUnlockText": "Unlocks purchasable Snail eggs in the Market",
 
-  "questDustBunniesText": "bunny bunny bun",
-  "questDustBunniesNotes": "bunnies attack",
-  "questDustBunniesCompletion": "bunnies dusted",
+  "questDustBunniesText": "Feral Dust Bunnies",
+  "questDustBunniesNotes": "It's been a while since you've done any dusting in here, but you're not too worried—a little dust never hurt anyone, right? It's not until you stick your hand into one of the dustiest corners and feel something bite that you remember @Inventrix's warning: leaving harmless dust sit too long causes it to turn into vicious dust bunnies! You'd better defeat them before they cover all of Habitica in fine particles of dirt!",
+  "questDustBunniesCompletion": "The dust bunnies vanish into a puff of... well, dust. As it clears, you look around. You'd forgotten how nice this place looks when it's clean. You spy a small pile of gold where the dust used to be. Huh, you'd been wondering where that was!",
   "questDustBunniesBoss": "Feral Dust Bunnies"
 }

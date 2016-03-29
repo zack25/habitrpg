@@ -2547,12 +2547,12 @@ api.quests = {
     },
     boss: {
       name: t('questDustBunniesBoss'),
-      hp: 200,
-      str: 1,
+      hp: 100,
+      str: 0.5,
     },
     drop: {
-      gp: 15,
-      exp: 80,
+      gp: 8,
+      exp: 42,
     },
   },
 };
