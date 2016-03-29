@@ -990,7 +990,7 @@ describe('Cron', () => {
     expect(beforeTasks).to.eql(afterTasks);
   });
 
-  describe.only('login incentives', () => {
+  describe('login incentives', () => {
     it('increments incentive counter by 1 each cron', function () {
       let ref = beforeAfter({
         daysAgo: 1,
@@ -1007,7 +1007,6 @@ describe('Cron', () => {
       let ref = beforeAfter({
         daysAgo: 1,
       });
-      let before = ref.before;
       let after = ref.after;
 
       after.fns.cron();
