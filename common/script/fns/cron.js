@@ -261,10 +261,10 @@ module.exports = function(user, options) {
     base4.cronCount = 0;
   }
   user.flags.cronCount++;
-  user.incentives++;
+  user.loginIncentives++;
   user.notifications.push({
     type: 'loginIncentive',
-    message: user.incentives,
+    message: user.loginIncentives,
   });
   analyticsData = {
     category: 'behavior',

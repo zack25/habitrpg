@@ -474,7 +474,7 @@ var UserSchema = new Schema({
     message: {type: String},
   }], 'default': []},
 
-  incentives: {type: Number, 'default': 0},
+  loginIncentives: {type: Number, 'default': 0},
 
 }, {
   strict: true,
