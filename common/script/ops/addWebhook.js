@@ -1,22 +1,15 @@
 import refPush from '../libs/refPush';
-import validator from 'validator';
-import i18n from '../i18n';
-import {
-  BadRequest,
-} from '../libs/errors';
-import _ from 'lodash';
 
-module.exports = function addWebhook (user, req = {}) {
-  let wh;
+module.exports = function(user, req, cb) {
+  var wh;
   wh = user.preferences.webhooks;
-
-  if (!validator.isURL(_.get(req, 'body.url'))) throw new BadRequest(i18n.t('invalidUrl', req.language));
-  if (!validator.isBoolean(_.get(req, 'body.enabled'))) throw new BadRequest(i18n.t('invalidEnabled', req.language));
-
-  user.markModified('preferences.webhooks');
-
-  return refPush(wh, {
+  refPush(wh, {
     url: req.body.url,
-    enabled: req.body.enabled,
+    enabled: req.body.enabled || true,
+    id: req.body.id
   });
+  if (typeof user.markModified === "function") {
+    user.markModified('preferences.webhooks');
+  }
+  return typeof cb === "function" ? cb(null, user.preferences.webhooks) : void 0;
 };
