@@ -720,7 +720,7 @@
             class="svg-icon d-inline-b"
             v-html="icons.destroy"
           ></div>
-          <span>{{ $t('deleteTask') }}</span>
+          <span>{{ $t('deleteTask', { taskType: $t(task.type), taskText: task.text }) }}</span>
         </div>
       </form>
     </div>
@@ -1468,7 +1468,7 @@ export default {
       this.$root.$emit('bv::hide::modal', 'task-modal');
     },
     destroy () {
-      if (!window.confirm(this.$t('sureDelete'))) return;
+      if (!window.confirm(this.$t('sureDelete', { taskType: this.$t(this.task.type), taskText: this.task.text }))) return;
       this.destroyTask(this.task);
       this.$emit('taskDestroyed', this.task);
       this.$root.$emit('bv::hide::modal', 'task-modal');

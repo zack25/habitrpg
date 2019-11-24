@@ -130,7 +130,7 @@ export default {
       this.close();
     },
     removeTask () {
-      if (!window.confirm('Are you sure you want to delete this task?')) return;
+      if (!window.confirm(this.$t('sureDelete', { taskType: this.$t(this.brokenChallengeTask.type), taskText: this.brokenChallengeTask.text }))) return;
       this.destroyTask(this.brokenChallengeTask);
       this.close();
     },

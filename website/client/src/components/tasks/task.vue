@@ -147,7 +147,9 @@
                         class="svg-icon inline delete"
                         v-html="icons.delete"
                       ></span>
-                      <span class="text">{{ $t('delete') }}</span>
+                      <span class="text">{{ $t('delete',
+                        { taskType: task.type, taskText: task.text }) }}
+                      </span>
                     </span>
                   </div>
                 </div>
@@ -997,7 +999,7 @@ export default {
       this.$emit('moveTo', this.task, 'bottom');
     },
     destroy () {
-      if (!window.confirm(this.$t('sureDelete'))) return;
+      if (!window.confirm(this.$t('sureDelete', { taskType: this.$t(this.task.type), taskText: this.task.text }))) return;
       this.destroyTask(this.task);
       this.$emit('taskDestroyed', this.task);
     },
